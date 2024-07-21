@@ -45,7 +45,9 @@ public class GildedRose
 
                     if (Items[i].Name == "Backstage passes to a TAFKAL80ETC concert")
                     {
-                        if (Items[i].SellIn < 11)
+                        itemV2.UpdateQuality();
+                        Items[i].Quality = itemV2.Quality;
+                        /*if (Items[i].SellIn < 11)
                         {
                             if (Items[i].Quality < 50)
                             {
@@ -59,7 +61,7 @@ public class GildedRose
                             {
                                 Items[i].Quality = Items[i].Quality + 1;
                             }
-                        }
+                        }*/
                     }
                 }
             }
@@ -75,17 +77,19 @@ public class GildedRose
                 {
                     if (Items[i].Name != "Backstage passes to a TAFKAL80ETC concert")
                     {
-                        if (Items[i].Quality > 0)
+                        /*if (Items[i].Quality > 0)
                         {
-                            /*if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
+                            if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
                             {
                                 Items[i].Quality = Items[i].Quality - 1;
-                            }*/
-                        }
+                            }
+                        }*/
                     }
                     else
                     {
-                        Items[i].Quality = Items[i].Quality - Items[i].Quality;
+                        //Items[i].Quality = Items[i].Quality - Items[i].Quality;
+                        itemV2.UpdateQuality();
+                        Items[i].Quality = itemV2.Quality;
                     }
                 }
                 else
