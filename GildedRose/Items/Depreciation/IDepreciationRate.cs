@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GildedRoseKata.Items.Qualities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace GildedRoseKata.Depreciation
 {
     public interface IDepreciationRate
     {
-        public int CalculateQuality(int quality, int sellIn);
+        public int CalculateQuality(IQuality quality, int sellIn);
     }
 }

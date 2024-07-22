@@ -1,4 +1,5 @@
 ﻿using GildedRoseKata.Depreciation;
+using GildedRoseKata.Items.Qualities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace GildedRoseKata.Items
 
         public override void UpdateQuality()
         {
-            Item.Quality = DepreciationRate.CalculateQuality(Item.Quality, Item.SellIn);
+            Item.Quality = DepreciationRate.CalculateQuality(new LegendaryQuality(Item.Quality), Item.SellIn);
         }
 
         public override void UpdateSellIn()

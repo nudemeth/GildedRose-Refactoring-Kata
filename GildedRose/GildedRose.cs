@@ -16,9 +16,9 @@ public class GildedRose
     {
         for (var i = 0; i < Items.Count; i++)
         {
-            var itemV2 = ItemFactory.CreateItem(Items[i]);
-            itemV2.UpdateSellIn();
-            itemV2.UpdateQuality();
+            var item = ItemFactory.CreateItem(Items[i]);
+            item.UpdateSellIn();
+            item.UpdateQuality();
         }
     }
 }

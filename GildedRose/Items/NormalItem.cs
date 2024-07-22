@@ -1,4 +1,5 @@
 ﻿using GildedRoseKata.Depreciation;
+using GildedRoseKata.Items.Qualities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace GildedRoseKata.Items
 
         public virtual void UpdateQuality()
         {
-            Item.Quality = DepreciationRate.CalculateQuality(Item.Quality, Item.SellIn);
+            Item.Quality = DepreciationRate.CalculateQuality(new NormalQuality(Item.Quality), Item.SellIn);
         }
 
         public virtual void UpdateSellIn()
