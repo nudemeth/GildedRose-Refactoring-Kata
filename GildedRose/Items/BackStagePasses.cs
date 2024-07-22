@@ -15,5 +15,10 @@ namespace GildedRoseKata.Items
         {
             Quality = DepreciationRate.CalculateQuality(Quality, SellIn);
         }
+
+        public void UpdateSellIn()
+        {
+            --SellIn;
+        }
     }
 }

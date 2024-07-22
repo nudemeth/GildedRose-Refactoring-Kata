@@ -14,6 +14,7 @@ namespace GildedRoseKata.Items
             {
                 "Aged Brie" => new AgedBrie { Name = item.Name, SellIn = item.SellIn, Quality = item.Quality },
                 "Backstage passes to a TAFKAL80ETC concert" => new BackStagePasses { Name = item.Name, SellIn = item.SellIn, Quality = item.Quality },
+                "Sulfuras, Hand of Ragnaros" => new Sulfuras { Name = item.Name, SellIn = item.SellIn, Quality = item.Quality },
                 _ => new NormalItem { Name = item.Name, SellIn = item.SellIn, Quality = item.Quality },
             };
         }

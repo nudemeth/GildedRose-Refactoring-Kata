@@ -17,7 +17,7 @@ namespace GildedRoseKata.Depreciation
 
         public int CalculateQuality(int quality, int sellIn)
         {
-            if (sellIn <= 0)
+            if (sellIn < 0)
             {
                 return 0;
             }
@@ -26,7 +26,7 @@ namespace GildedRoseKata.Depreciation
 
             foreach (var (dueIn, step) in _stepConfigs)
             {
-                if (sellIn <= dueIn)
+                if (sellIn < dueIn)
                 {
                     newQuality = quality + step;
                     break;

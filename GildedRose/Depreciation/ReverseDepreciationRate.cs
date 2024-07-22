@@ -10,7 +10,12 @@ namespace GildedRoseKata.Depreciation
     {
         public int CalculateQuality(int quality, int sellIn)
         {
-            var newQuality = ++quality;
+            var newQuality = quality + 1;
+
+            if (sellIn < 0)
+            {
+                newQuality++;
+            }
 
             if (newQuality > 50)
             {

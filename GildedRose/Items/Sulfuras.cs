@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace GildedRoseKata.Items
 {
-    public class AgedBrie : Item, IItem
+    public class Sulfuras : Item, IItem
     {
-        public IDepreciationRate DepreciationRate => new ReverseDepreciationRate();
+        public IDepreciationRate DepreciationRate => new NoDepreciationRate();
 
         public void UpdateQuality()
         {
@@ -18,7 +18,7 @@ namespace GildedRoseKata.Items
 
         public void UpdateSellIn()
         {
-            --SellIn;
+            //Not for sell item.
         }
     }
 }
