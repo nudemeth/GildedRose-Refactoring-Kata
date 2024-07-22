@@ -6,20 +6,15 @@ using System.Threading.Tasks;
 
 namespace GildedRoseKata.Depreciation
 {
-    public class NormalDepreciationRate : IDepreciationRate
+    public class NormalDepreciationRate : SellableDepreciationRate
     {
-        public int CalculateQuality(int quality, int sellIn)
+        protected override int Calculate(int quality, int sellIn)
         {
             var newQuality = quality - 1;
 
             if (sellIn < 0)
             {
                 newQuality--;
-            }
-
-            if (newQuality < 0)
-            {
-                newQuality = 0;
             }
 
             return newQuality;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GildedRoseKata.Depreciation
 {
-    public class StepDepreciationRate : IDepreciationRate
+    public class StepDepreciationRate : SellableDepreciationRate
     {
         private readonly SortedDictionary<int, int> _stepConfigs;
 
@@ -15,7 +15,7 @@ namespace GildedRoseKata.Depreciation
             _stepConfigs = stepConfigs;
         }
 
-        public int CalculateQuality(int quality, int sellIn)
+        protected override int Calculate(int quality, int sellIn)
         {
             if (sellIn < 0)
             {
@@ -31,11 +31,6 @@ namespace GildedRoseKata.Depreciation
                     newQuality = quality + step;
                     break;
                 }
-            }
-
-            if (newQuality > 50)
-            {
-                newQuality = 50;
             }
 
             return newQuality;
