@@ -7,18 +7,17 @@ using System.Threading.Tasks;
 
 namespace GildedRoseKata.Items
 {
-    public class BackStagePasses : Item, IItem
+    public class BackStagePasses : NormalItem
     {
-        public IDepreciationRate DepreciationRate => new StepDepreciationRate(new SortedDictionary<int, int> { { 10, 2 }, { 5, 3 } });
-
-        public void UpdateQuality()
+        public BackStagePasses(Item item) : base(item)
         {
-            Quality = DepreciationRate.CalculateQuality(Quality, SellIn);
         }
 
-        public void UpdateSellIn()
+        public override IDepreciationRate DepreciationRate => new StepDepreciationRate(new SortedDictionary<int, int> { { 10, 2 }, { 5, 3 } });
+
+        public override void UpdateQuality()
         {
-            --SellIn;
+            Item.Quality = DepreciationRate.CalculateQuality(Item.Quality, Item.SellIn);
         }
     }
 }

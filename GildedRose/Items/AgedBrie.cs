@@ -7,18 +7,17 @@ using System.Threading.Tasks;
 
 namespace GildedRoseKata.Items
 {
-    public class AgedBrie : Item, IItem
+    public class AgedBrie : NormalItem
     {
-        public IDepreciationRate DepreciationRate => new ReverseDepreciationRate();
-
-        public void UpdateQuality()
+        public AgedBrie(Item item) : base(item)
         {
-            Quality = DepreciationRate.CalculateQuality(Quality, SellIn);
         }
 
-        public void UpdateSellIn()
+        public override IDepreciationRate DepreciationRate => new ReverseDepreciationRate();
+
+        public override void UpdateQuality()
         {
-            --SellIn;
+            Item.Quality = DepreciationRate.CalculateQuality(Item.Quality, Item.SellIn);
         }
     }
 }

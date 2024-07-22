@@ -7,18 +7,25 @@ using System.Threading.Tasks;
 
 namespace GildedRoseKata.Items
 {
-    internal class NormalItem : Item, IItem
+    public class NormalItem : IItem
     {
-        public IDepreciationRate DepreciationRate => new NormalDepreciationRate();
+        protected Item Item { get; }
 
-        public void UpdateQuality()
+        public NormalItem(Item item)
         {
-            Quality = DepreciationRate.CalculateQuality(Quality, SellIn);
+            Item = item;
         }
 
-        public void UpdateSellIn()
+        public virtual IDepreciationRate DepreciationRate => new NormalDepreciationRate();
+
+        public virtual void UpdateQuality()
         {
-            --SellIn;
+            Item.Quality = DepreciationRate.CalculateQuality(Item.Quality, Item.SellIn);
+        }
+
+        public virtual void UpdateSellIn()
+        {
+            Item.SellIn--;
         }
     }
 }

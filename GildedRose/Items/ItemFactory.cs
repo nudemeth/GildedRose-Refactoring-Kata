@@ -12,10 +12,10 @@ namespace GildedRoseKata.Items
         {
             return item.Name switch
             {
-                "Aged Brie" => new AgedBrie { Name = item.Name, SellIn = item.SellIn, Quality = item.Quality },
-                "Backstage passes to a TAFKAL80ETC concert" => new BackStagePasses { Name = item.Name, SellIn = item.SellIn, Quality = item.Quality },
-                "Sulfuras, Hand of Ragnaros" => new Sulfuras { Name = item.Name, SellIn = item.SellIn, Quality = item.Quality },
-                _ => new NormalItem { Name = item.Name, SellIn = item.SellIn, Quality = item.Quality },
+                "Aged Brie" => new AgedBrie(item),
+                "Backstage passes to a TAFKAL80ETC concert" => new BackStagePasses(item),
+                "Sulfuras, Hand of Ragnaros" => new Sulfuras(item),
+                _ => new NormalItem(item),
             };
         }
     }

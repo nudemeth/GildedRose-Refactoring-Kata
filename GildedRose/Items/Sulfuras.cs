@@ -7,16 +7,20 @@ using System.Threading.Tasks;
 
 namespace GildedRoseKata.Items
 {
-    public class Sulfuras : Item, IItem
+    public class Sulfuras : NormalItem
     {
-        public IDepreciationRate DepreciationRate => new NoDepreciationRate();
-
-        public void UpdateQuality()
+        public Sulfuras(Item item) : base(item)
         {
-            Quality = DepreciationRate.CalculateQuality(Quality, SellIn);
         }
 
-        public void UpdateSellIn()
+        public override IDepreciationRate DepreciationRate => new NoDepreciationRate();
+
+        public override void UpdateQuality()
+        {
+            Item.Quality = DepreciationRate.CalculateQuality(Item.Quality, Item.SellIn);
+        }
+
+        public override void UpdateSellIn()
         {
             //Not for sell item.
         }

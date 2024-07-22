@@ -19,8 +19,6 @@ public class GildedRose
             var itemV2 = ItemFactory.CreateItem(Items[i]);
             itemV2.UpdateSellIn();
             itemV2.UpdateQuality();
-            Items[i].Quality = itemV2.Quality;
-            Items[i].SellIn = itemV2.SellIn;
         }
     }
 }
