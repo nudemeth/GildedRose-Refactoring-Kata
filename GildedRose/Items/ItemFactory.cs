@@ -15,6 +15,7 @@ namespace GildedRoseKata.Items
                 "Aged Brie" => new AgedBrie(item),
                 "Backstage passes to a TAFKAL80ETC concert" => new BackStagePasses(item),
                 "Sulfuras, Hand of Ragnaros" => new Sulfuras(item),
+                "Conjured Mana Cake" => new Conjured(item),
                 _ => new NormalItem(item),
             };
         }
